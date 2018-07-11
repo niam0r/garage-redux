@@ -45,7 +45,7 @@ function mapStateToProps(reduxState) {
   return {
     garage: reduxState.garage,
     cars: reduxState.cars
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {

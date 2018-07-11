@@ -31,6 +31,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "echo \"You are using react-router. You can't deploy on GitHub Pages\""
   }
 }

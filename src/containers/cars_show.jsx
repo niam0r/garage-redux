@@ -29,9 +29,10 @@ class CarsShow extends Component {
 }
 
 function mapStateToProps(reduxState, ownProps) {
-  const idFromUrl = parseInt(ownProps.match.params.id, 10); // From URL
-  const car = reduxState.cars.find(car => car.id === idFromUrl);
-  return { car };
+  const id = parseInt(ownProps.match.params.id, 10); // From URL
+  return {
+    car: reduxState.cars.find(car => car.id === id),
+  };
 }
 
 function mapDispatchToProps(dispatch) {
