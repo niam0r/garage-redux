@@ -10,11 +10,12 @@ import { createHistory as history } from 'history';
 
 // internal modules
 import CarsIndex from './containers/cars_index';
+import CarsShow from './containers/cars_show';
+import CarsNew from './containers/cars_new';
+import '../assets/stylesheets/application.scss';
 
 // state and reducers
 import carsReducer from './reducers/cars_reducer';
-
-import '../assets/stylesheets/application.scss';
 
 const initialState = {
   garage: "Gary's gruesome garage",
@@ -35,9 +36,10 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={CarsIndex} />
+        <Route path="/cars/new" exact component={CarsNew} />
+        <Route path="/cars/:id" component={CarsShow} />
       </Switch>
     </Router>
   </Provider>,
   document.getElementById('root')
 );
-      // <Route path="/cars/new" component={CarsNew} />
