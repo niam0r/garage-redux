@@ -1,8 +1,9 @@
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { fetchCar } from '../actions/index';
 import { connect } from 'react-redux';
 
-import React, { Component } from 'react';
+import { fetchCar } from '../actions';
+
 
 class CarsShow extends Component {
   componentDidMount() {
@@ -12,6 +13,10 @@ class CarsShow extends Component {
   }
 
   render() {
+    if (!this.props.car) {
+      return <p>Loading...</p>;
+    }
+
     const car = this.props.car;
     return (
       <div className="car-item">
@@ -26,7 +31,7 @@ class CarsShow extends Component {
 function mapStateToProps(reduxState, ownProps) {
   const idFromUrl = parseInt(ownProps.match.params.id, 10); // From URL
   const car = reduxState.cars.find(car => car.id === idFromUrl);
-  return { car: car };
+  return { car };
 }
 
 function mapDispatchToProps(dispatch) {
