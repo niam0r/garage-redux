@@ -24,12 +24,14 @@ export function fetchCars(garage) {
   };
 }
 
-export function createPost(body) {
-  const request = fetch(`${ROOT_URL}?key=${API_KEY}`, {
+export function createCar(garage, car, callback) {
+  const url = `${BASE_URL}/${garage}/cars`;
+  const request = fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify(car)
     }).then(response => response.json())
+      .then(callback());
     return {
       type: CAR_CREATED,
       payload: request
