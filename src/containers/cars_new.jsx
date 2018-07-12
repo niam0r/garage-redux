@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { createPost } from '../actions';
+import { createCar } from '../actions';
 
 class CarsNew extends Component {
   onSubmit = (values) => {
-    this.props.createPost(values, (post) => {
+    this.props.createCar(values, (car) => {
       this.props.history.push('/'); // Navigate after submit
-        return post;
+        return car;
     });
   }
 
@@ -66,5 +66,5 @@ class CarsNew extends Component {
 }
 
 export default reduxForm({ form: 'newPostForm' })(
-  connect(null, { createPost })(CarsNew)
+  connect(null, { createCar })(CarsNew)
 );
