@@ -27,13 +27,13 @@ export function fetchCars(garage) {
 export function createCar(garage, car, callback) {
   const url = `${BASE_URL}/${garage}/cars`;
   const request = fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(car)
-    }).then(response => response.json())
-      .then(callback());
-    return {
-      type: CAR_CREATED,
-      payload: request
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(car)
+  }).then(response => response.json())
+    .then(callback());
+  return {
+    type: CAR_CREATED,
+    payload: request
   };
 }
