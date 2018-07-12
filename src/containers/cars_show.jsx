@@ -33,11 +33,11 @@ class CarsShow extends Component {
           <p><strong>Owner: </strong>{car.owner}</p>
           <p>{car.plate}</p>
           <button className="delete" onClick={this.handleClick}>
-            <i className="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="fas fa-trash-alt"></i>
             Delete
           </button>
         </div>
-       </div>
+      </div>
     );
   }
 }

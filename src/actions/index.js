@@ -1,5 +1,6 @@
 export const FETCH_CARS = "FETCH_CARS";
 export const FETCH_CAR = "FETCH_CAR";
+export const CAR_CREATED = 'CAR_CREATED';
 export const REMOVE_CAR = 'REMOVE_CAR';
 
 const BASE_URL = 'https://wagon-garage-api.herokuapp.com/';

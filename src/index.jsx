@@ -19,7 +19,7 @@ import '../assets/stylesheets/application.scss';
 import carsReducer from './reducers/cars_reducer';
 
 const initialState = {
-  garage: "Gary's gruesome garage",
+  garage: "Gary's Gruesome Garage",
   cars: []
 };
 
