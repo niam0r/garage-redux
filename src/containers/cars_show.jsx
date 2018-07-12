@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchCar, removeCar } from '../actions';
 
@@ -23,15 +24,20 @@ class CarsShow extends Component {
     }
 
     return (
-      <div className="car-item">
-        <h3>{car.brand} - {car.model}</h3>
-        <p><strong>Owner: </strong>{car.owner}</p>
-        <p>{car.plate}</p>
-        <button className="delete" onClick={this.handleClick}>
-          <i className="fa fa-trash-o" aria-hidden="true"></i>
-          Delete
-        </button>
-      </div>
+      <div>
+        <Link className="btn btn-primary btn-cta" to="/">
+          Back to garage
+        </Link>
+        <div className="car-item">
+          <h3>{car.brand} - {car.model}</h3>
+          <p><strong>Owner: </strong>{car.owner}</p>
+          <p>{car.plate}</p>
+          <button className="delete" onClick={this.handleClick}>
+            <i className="fa fa-trash-o" aria-hidden="true"></i>
+            Delete
+          </button>
+        </div>
+       </div>
     );
   }
 }
