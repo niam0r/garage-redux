@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchCar } from '../actions';
+import { fetchCar, removeCar } from '../actions';
 
 
 class CarsShow extends Component {
@@ -12,17 +12,25 @@ class CarsShow extends Component {
     }
   }
 
+  handleClick = () => {
+    this.props.removeCar(this.props.history, this.props.car);
+  }
+
   render() {
-    if (!this.props.car) {
+    const car = this.props.car;
+    if (!car) {
       return <p>Loading...</p>;
     }
 
-    const car = this.props.car;
     return (
       <div className="car-item">
         <h3>{car.brand} - {car.model}</h3>
         <p><strong>Owner: </strong>{car.owner}</p>
         <p>{car.plate}</p>
+        <button className="delete" onClick={this.handleClick}>
+          <i className="fa fa-trash-o" aria-hidden="true"></i>
+          Delete
+        </button>
       </div>
     );
   }
@@ -36,7 +44,7 @@ function mapStateToProps(reduxState, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCar }, dispatch);
+  return bindActionCreators({ fetchCar, removeCar }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarsShow);
